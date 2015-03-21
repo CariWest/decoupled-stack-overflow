@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DBC Overflow</title>
+    <link rel="stylesheet" type="text/css" href="./stylesheets/questions.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.0/handlebars.js"></script>
+  </head>
+
+  <body>
+    <div class="container">
+      <h1>DBC Overflow</h1>
+      <p id="quote"></p>
+
+      <h2>New Question</h2>
+
+      <form action="/questions" method="post" class="new_question">
+        <h4>Title</h4>
+        <input type="text" label="Title" name="title" size='100' placeholder="Title">
+        <h4>Content</h4>
+        <textarea rows='5' cols='100' name="content" placeholder="Describe your question here..."></textarea>
+        <p>
+          <input type="submit" value="Add Question"/>
+        </p>
+      </form>
+    </div>
+
+    <div class="container" id="all_questions">
+      <h1>Questions</h1>
+
+      <script type="text/x=handlebars-template" id="question_template">
+        <div class="question" id="question_{{question.id}}">
+          {{#each questions}}
+            <h3>{{title}}</h3>
+            <p>{{content}}</p>
+
+            <a href="{{paths.show}}">Show</a>
+            <a href="{{paths.edit}}">Edit</a>
+            <a href="{{paths.destroy}}" data-confirm="Are you sure?" data-method="delete" rel="nofollow">Destroy</a>
+
+            <form action="/questions/{{question.id}}/upvote" class="button_to" method="post">
+              <div>
+                <input type="submit" value="+1">
+              </div>
+            </form>
+
+            <form action="/questions/{{question.id}}/downvote" class="button_to" method="post">
+              <div>
+                <input type="submit" value="-1">
+              </div>
+            </form>
+          {{/each}}
+        </div>
+      </script>
+    </div>
+  </body>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+  <script src="./javascript/questions.js"></script>
+
+</html>

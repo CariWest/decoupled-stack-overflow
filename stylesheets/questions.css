@@ -1,0 +1,20 @@
+.container {
+  width: 900px;
+  margin: 1em auto;
+  padding: 1em;
+  border: 1px black dashed;
+}
+
+.question {
+  width: 850px;
+  margin: .5em auto;
+  padding: 1em;
+  background-color: #d3d3d3;
+}
+
+.answer {
+  width: 850px;
+  margin: .5em auto;
+  padding: 1em;
+  background-color: #d3d3d3;
+}

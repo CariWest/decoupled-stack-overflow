@@ -28,33 +28,33 @@
       <h1>Questions</h1>
 
       <script type="text/x=handlebars-template" id="question_template">
-        <div class="question" id="question_{{question.id}}">
-          {{#each questions}}
+        {{#each questions}}
+          <div class="question" id="question_{{id}}">
             <h3>{{title}}</h3>
             <p>{{content}}</p>
 
-            <a href="{{paths.show}}">Show</a>
-            <a href="{{paths.edit}}">Edit</a>
-            <a href="{{paths.destroy}}" data-confirm="Are you sure?" data-method="delete" rel="nofollow">Destroy</a>
+            <a href="/questions/{{id}}">Show</a>
+            <a href="/questions/{{id}}/edit">Edit</a>
+            <a href="/questions/{{id}}" data-confirm="Are you sure?" data-method="delete" rel="nofollow">Destroy</a>
 
-            <form action="/questions/{{question.id}}/upvote" class="button_to" method="post">
+            <form action="/questions/{{id}}/upvote" class="button_to" method="post">
               <div>
                 <input type="submit" value="+1">
               </div>
             </form>
 
-            <form action="/questions/{{question.id}}/downvote" class="button_to" method="post">
+            <form action="/questions/{{id}}/downvote" class="button_to" method="post">
               <div>
                 <input type="submit" value="-1">
               </div>
             </form>
-          {{/each}}
-        </div>
+          </div>
+        {{/each}}
       </script>
     </div>
   </body>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-  <script src="./javascript/questions.js"></script>
+  <script src="./javascript/index.js"></script>
 
 </html>

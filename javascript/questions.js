@@ -2,7 +2,7 @@ var BASE_URL = "http://localhost:3000"
 
 var getAll = function(type) {
   return $.ajax({
-    url: '/questions',
+    url: BASE_URL + '/questions',
     method: 'get',
   });
 }

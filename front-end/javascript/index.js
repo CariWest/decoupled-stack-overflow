@@ -30,9 +30,9 @@ $(document).ready(function(){
  $(".new_question").on('submit', function(event){
   event.preventDefault();
 
-  var formData = $(this).serialize();
-  var myUrl = BASE_URL + $(this).attr('action')
-  var myMethod = $(this).attr('method')
+  var formData = $(this).children().serialize();
+  var myUrl = BASE_URL + $(this).attr('action');
+  var myMethod = $(this).attr('method');
 
   var questionRequest = $.ajax({
     url: myUrl,
